@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 const ProgressOverview = () => {
   const { activities } = useActivities();
   const totalActivities = activities.length;
-  const completedActivities = 0; //activities.filter((a) => a.isCompleted).length;
-  const inProgressActivities = 0; //activities.filter((a) => !a.isCompleted && a.instructions.some(step => step.isCompleted)).length;
-  const completionPercentage = 0; //totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
+  const completedActivities = activities.filter((a) => a.isCompleted).length;
+  const inProgressActivities = activities.filter((a) => !a.isCompleted && a.instructions.some(step => step.isCompleted)).length;
+  const completionPercentage = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
 
   return (
     <div className="space-y-8 py-8">
@@ -62,7 +62,11 @@ const ProgressOverview = () => {
           <span className="text-lg font-semibold">{completionPercentage}%</span>
         </div>
         <p className="text-sm text-muted-foreground mt-2">
-          Start completing activities to track your progress!
+          {completionPercentage === 100 
+            ? "Congratulations! You've completed all activities!" 
+            : completionPercentage > 0 
+              ? "Keep going! You're making great progress!" 
+              : "Start completing activities to track your progress!"}
         </p>
       </Card>
       
