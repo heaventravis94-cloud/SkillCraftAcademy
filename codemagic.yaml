@@ -15,7 +15,9 @@ workflows:
         script: npm run build
 
       - name: Sync Capacitor
-        script: npx cap sync android
+        script: |
+          npm run build
+          npx --no-install cap sync android
 
       - name: Fix gradlew permissions (code 126)
         script: chmod +x android/gradlew
