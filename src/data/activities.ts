@@ -175,7 +175,7 @@ const generateRandomActivity = (index: number): Activity => {
 };
 
 const newActivities: Activity[] = [];
-for (let i = 0; i < 195; i++) { // Generate 195 new activities to reach 200 total
+for (let i = 0; i < 395; i++) { // Generate 395 new activities to reach 400 total (5 existing + 395 new)
   newActivities.push(generateRandomActivity(i));
 }
 
