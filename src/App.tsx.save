@@ -1,9 +1,6 @@
+import { Toaster } from "@/components/ui/toaster";
 
-
-
-import Toaster from "./components/Toaster";
-
-export default function App() {
+function App() {
   return (
     <>
       <Toaster />
@@ -13,4 +10,8 @@ export default function App() {
     </>
   );
 }
+
+export default App;
+
+rm -rf node_modules
 
